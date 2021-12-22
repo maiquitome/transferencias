@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './transfer_card.dart';
 import './transfer_model.dart';
+import './transfer_page.dart';
 
 class TransfersPage extends StatelessWidget {
   @override
@@ -18,7 +19,14 @@ class TransfersPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          return Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TransferPage(),
+            ),
+          );
+        },
         child: Icon(Icons.add),
       ),
     );
