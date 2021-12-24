@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
     this.labelText,
     this.hintText,
     this.validator,
+    this.onSaved,
     this.keyboardType,
   }) : super(key: key);
 
@@ -14,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final String hintText;
   final String Function(String) validator;
+  final void Function(String) onSaved;
   final TextInputType keyboardType;
 
   @override
@@ -34,6 +36,7 @@ class CustomTextFormField extends StatelessWidget {
             ),
           ),
           validator: validator,
+          onSaved: onSaved,
           keyboardType: keyboardType,
         ),
         defaultSizedBoxHeight,

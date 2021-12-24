@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
+import './transfer_model.dart';
 import './custom_text_form_field.dart';
-
 
 class TransferPage extends StatelessWidget {
   const TransferPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TransferModel _transferModel = TransferModel(
+      value: 0.0,
+      accountNumber: 0,
+    );
+
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -28,6 +33,9 @@ class TransferPage extends StatelessWidget {
                   }
                   return null;
                 },
+                onSaved: (String value) {
+                  return _transferModel.accountNumber = int.tryParse(value);
+                },
                 keyboardType: TextInputType.number,
               ),
               CustomTextFormField(
@@ -40,6 +48,9 @@ class TransferPage extends StatelessWidget {
                     return 'Informe o valor';
                   }
                   return null;
+                },
+                onSaved: (String value) {
+                  return _transferModel.value = double.tryParse(value);
                 },
               ),
               SizedBox(
@@ -55,7 +66,11 @@ class TransferPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onPressed: () => _createsTransfer(_formKey),
+                  onPressed: () => _createsTransfer(
+                    formKey: _formKey,
+                    transferModel: _transferModel,
+                    context: context,
+                  ),
                   child: Text('Transferir'),
                 ),
               )
@@ -66,7 +81,15 @@ class TransferPage extends StatelessWidget {
     );
   }
 
-  void _createsTransfer(GlobalKey<FormState> formKey) {
-    if (formKey.currentState.validate()) {}
+  void _createsTransfer({
+    @required GlobalKey<FormState> formKey,
+    @required TransferModel transferModel,
+    @required BuildContext context,
+  }) {
+    if (formKey.currentState.validate()) {
+      formKey.currentState.save();
+      
+      Navigator.pop(context, transferModel);
+    }
   }
 }

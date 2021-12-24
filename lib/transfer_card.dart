@@ -4,19 +4,19 @@ import './transfer_model.dart';
 
 class TransferCard extends StatelessWidget {
   const TransferCard(
-    this._transfer, {
+    this._transferModel, {
     Key key,
   }) : super(key: key);
 
-  final TransferModel _transfer;
+  final TransferModel _transferModel;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: Icon(Icons.monetization_on),
-        title: Text('${_transfer.value}'),
-        subtitle: Text('Destinatário: ${_transfer.accountNumber}'),
+        title: Text('${_transferModel.value}'),
+        subtitle: Text('Destinatário: ${_transferModel.accountNumber}'),
       ),
     );
   }
