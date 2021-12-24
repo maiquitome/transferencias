@@ -34,8 +34,8 @@ class _TransfersPageState extends State<TransfersPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final Future<TransferModel> _transfer = Navigator.push(
+        onPressed: () async {
+          final Future<TransferModel> _transfer = await Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => TransferPage(),
