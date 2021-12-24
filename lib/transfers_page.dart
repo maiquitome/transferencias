@@ -34,20 +34,21 @@ class _TransfersPageState extends State<TransfersPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final Future<TransferModel> _transfer = await Navigator.push(
+        onPressed: () {
+          final Future<TransferModel> _transfer = Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => TransferPage(),
             ),
           );
 
-          if (_transfer != null)
-            _transfer.then((value) {
+          _transfer.then((value) {
+            if (value != null) {
               setState(() {
                 widget._transfersModel.transfers.add(value);
               });
-            });
+            }
+          });
         },
         child: Icon(Icons.add),
       ),
