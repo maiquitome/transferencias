@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './transfer_model.dart';
+import '../../../transfers/transfer/model/transfer_model.dart';
 
 class TransferCard extends StatelessWidget {
   const TransferCard(

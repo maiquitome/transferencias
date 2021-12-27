@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './transfers_page.dart';
+import 'features/transfers/transfers/pages/transfers_page.dart';
 
 void main() {
   runApp(TransferApp());

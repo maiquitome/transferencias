@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './transfer_card.dart';
-import './transfer_model.dart';
-import './transfers_model.dart';
-import './transfer_page.dart';
+import '../../transfers/widgets/transfer_card.dart';
+import '../../transfer/model/transfer_model.dart';
+import '../models/transfers_model.dart';
+import '../../transfer/pages/transfer_page.dart';
 
 class TransfersPage extends StatefulWidget {
   // Valores que não vão mudar ficam no StatefulWidget
@@ -42,16 +42,18 @@ class _TransfersPageState extends State<TransfersPage> {
             ),
           );
 
-          _transfer.then((value) {
-            if (value != null) {
-              setState(() {
-                widget._transfersModel.transfers.add(value);
-              });
-            }
-          });
+          _transfer.then((value) => updateTransfers(value));
         },
         child: Icon(Icons.add),
       ),
     );
+  }
+
+  void updateTransfers(TransferModel transferModel) {
+    if (transferModel != null) {
+      setState(() {
+        widget._transfersModel.transfers.add(transferModel);
+      });
+    }
   }
 }

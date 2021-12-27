@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import './transfer_model.dart';
+import '../../transfer/model/transfer_model.dart';
 
 class TransfersModel {
   TransfersModel({

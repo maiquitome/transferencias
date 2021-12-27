@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './transfer_model.dart';
-import './custom_text_form_field.dart';
+import '../model/transfer_model.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
 
 class TransferPage extends StatelessWidget {
   const TransferPage({Key key}) : super(key: key);
